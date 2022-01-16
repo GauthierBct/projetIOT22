@@ -54,10 +54,10 @@ Pour commencer, on peut différencier les différentes classes :
 ![alt text](https://github.com/GauthierBct/projetIOT22/blob/main/img/ClasseA.png?raw=true)
 
 -   **Classe B** : Cette classe permet un compromis entre la consommation énergétique et le besoin en communication bidirectionnelle. Ces équipements ouvrent des fenêtres de réception à des intervalles programmés par des messages périodique envoyés par le serveur.
-![alt text](https://github.com/GauthierBct/projetIOT22/blob/main/img/Automate.png?raw=true)
+![alt text](https://github.com/GauthierBct/projetIOT22/blob/main/img/ClasseB.png?raw=true)
 
 -   **Classe C** : Cette classe a la plus forte consommation énergétique mais permet des communications bidirectionnelles n'étant pas programmées. Les équipements ont une fenêtre d'écoute permanente.
-![alt text](https://github.com/GauthierBct/projetIOT22/blob/main/img/Automate.png?raw=true)
+![alt text](https://github.com/GauthierBct/projetIOT22/blob/main/img/ClasseC.png?raw=true)
 
 
 ## Analyse du cycle de vie du produit
