@@ -83,8 +83,12 @@ Pour commencer, on peut différencier les différentes classes :
 ## Analyse des produits concurrents
 |Nom du produit|Avantage(s)|Inconvénient(s)|
 |--------------|-----------|---------------|
-|R602A LoRaWAN Wireless Siren|Secouru par batterie intégrée / Extrêmement simple à installer et utiliser / Grande couverture sonore (126 dB) / Communication sans fil longue distance (jusqu'à 1,2 km)|Forte consommation en énergie / Prix très élevé|
-|Avertisseur vocal connecté 126 dB Radio LoRa SmartVOX|||
+|Avertisseur vocal connecté 126 dB Radio LoRa SmartVOX|Secouru par batterie intégrée / Extrêmement simple à installer et utiliser / Grande couverture sonore (126 dB)|Forte consommation en énergie / Prix très élevé / Communication sans fil longue distance (jusqu'à 1,2 km)|
+|R602A LoRaWAN Wireless Siren|Extrêmement simple à installer et utiliser / durée de vie de 5 ans (avec batterie) / Prix correcte (179 $)|Couverture sonore (80 dB)|
+|MClimate CO2 Sensor and Notifier LoRaWAN|Extrêmement simple à installer et utiliser / durée de vie de 10 ans (avec piles) / Prix correcte (160 €)|Couverture sonore très faible (10 dB)|
+|Alarme autonome ineo-sense ACS Switch Buzz®|Extrêmement simple à installer et utiliser / durée de vie de 5 ans (avec pile remplacable) / Détection ouverture de porte / Couverture sonore (100 dB)|Aucun|
+Alarme autonome ineo-sense ACS Switch Buzz®
+
 ## Localisation de l'objet
 ## Options du système
 Nous utilisons Cayenne afin de visualiser nos données mais également d'envoyer un mail ainsi qu'un SMS pour prévenir que la concentration de CO2 a dépassé un seuil critique et donc que l'alarme est déclenché.
