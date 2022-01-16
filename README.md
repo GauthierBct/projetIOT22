@@ -14,6 +14,24 @@ L’objet sirène envoie périodiquement un message de status (ie heart beat) un
 
 ## Architecture globale du réseau de sirènes d’alarme
 ## Sécurité globale : clé de chiffrage
+Pour échanger des données, tous les appareils doivent être activés par le réseau.
+On a 2 types de procédures d'activation :
+- Activation par la voie des airs (OTAA)
+- Activation par personnalisation (ABP)
+
+![alt text](https://github.com/GauthierBct/projetIOT22/blob/main/img/Activation.png?raw=true)
+
+Dans notre cas nous utiliserons OTAA cela signifie que :
+- Nécessite des informations sur l'EUI du dispositif, l'EUI de l'application et la clé de l'application.
+- Le dispositif initie une poignée de main avec le serveur pour obtenir son adresse et un "nonce" => l'adresse du dispositif change après chaque activation.
+- Les 2 clés de session sont dérivées de la clé d'application et du nonce.
+Dans notre main.c cela correspond aux lignes suivantes : 
+```c
+static const uint8_t deveui[LORAMAC_DEVEUI_LEN] = { 0x64, 0x05, 0xe0, 0xfd, 0xa2, 0x58, 0x65, 0x82 };
+static const uint8_t appeui[LORAMAC_APPEUI_LEN] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+static const uint8_t appkey[LORAMAC_APPKEY_LEN] = { 0x01, 0x3B, 0xF2, 0x33, 0x0C, 0x6D, 0xA2, 0x03, 0x4D, 0xDE, 0x8E, 0xD0, 0x07, 0xB6, 0x4E, 0x6A };
+```
+
 ## Architecture matérielle de l’objet
 ![alt text](https://github.com/GauthierBct/projetIOT22/blob/main/img/Structure.png?raw=true)
 
