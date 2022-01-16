@@ -64,6 +64,9 @@ static const uint8_t appkey[LORAMAC_APPKEY_LEN] = { 0x01, 0x3B, 0xF2, 0x33, 0x0C
 	- **Mouvement** : Format LPP Presence sur le canal 3
 ## Logiciel embarqué de l’objet sirène
 ## Métriques logiciel du logiciel embarqué
+- Nombres de lignes : 230
+- Taille du fichier binaire : 256 ko
+
 ## Changements de comportement de l’objet en fonction des événements
 ![alt text](https://github.com/GauthierBct/projetIOT22/blob/main/img/Automate.png?raw=true)
 
