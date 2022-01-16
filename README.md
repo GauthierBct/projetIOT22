@@ -25,6 +25,7 @@ Dans notre cas nous utiliserons OTAA cela signifie que :
 - Nécessite des informations sur l'EUI du dispositif, l'EUI de l'application et la clé de l'application.
 - Le dispositif initie une poignée de main avec le serveur pour obtenir son adresse et un "nonce" => l'adresse du dispositif change après chaque activation.
 - Les 2 clés de session sont dérivées de la clé d'application et du nonce.
+
 Dans notre main.c cela correspond aux lignes suivantes : 
 ```c
 static const uint8_t deveui[LORAMAC_DEVEUI_LEN] = { 0x64, 0x05, 0xe0, 0xfd, 0xa2, 0x58, 0x65, 0x82 };
