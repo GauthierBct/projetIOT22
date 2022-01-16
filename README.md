@@ -90,7 +90,6 @@ Pour commencer, on peut différencier les différentes classes :
 |R602A LoRaWAN Wireless Siren|Extrêmement simple à installer et utiliser / durée de vie de 5 ans (avec batterie) / Prix correcte (179 $)|Couverture sonore (80 dB)|
 |MClimate CO2 Sensor and Notifier LoRaWAN|Extrêmement simple à installer et utiliser / durée de vie de 10 ans (avec piles) / Prix correcte (160 €)|Couverture sonore très faible (10 dB)|
 |Alarme autonome ineo-sense ACS Switch Buzz®|Extrêmement simple à installer et utiliser / durée de vie de 5 ans (avec pile remplacable) / Détection ouverture de porte / Couverture sonore (100 dB)|Aucun|
-Alarme autonome ineo-sense ACS Switch Buzz®
 
 ## Localisation de l'objet
 ## Options du système
