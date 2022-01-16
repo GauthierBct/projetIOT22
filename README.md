@@ -12,6 +12,8 @@ L’objet sirène est déclenché soit par un bouton poussoir (ie panic button),
   
 L’objet sirène envoie périodiquement un message de status (ie heart beat) une fois déclenchée.
 
+Une vidéo de démonstration est disponible [ici](https://www.youtube.com/watch?v=ilunLYDT-cQ).
+
 ## Architecture globale du réseau de sirènes d’alarme
 ## Sécurité globale : clé de chiffrage
 Pour échanger des données, tous les appareils doivent être activés par le réseau.
@@ -90,11 +92,14 @@ Pour commencer, on peut différencier les différentes classes :
 |R602A LoRaWAN Wireless Siren|Extrêmement simple à installer et utiliser / durée de vie de 5 ans (avec batterie) / Prix correcte (179 $)|Couverture sonore (80 dB)|
 |MClimate CO2 Sensor and Notifier LoRaWAN|Extrêmement simple à installer et utiliser / durée de vie de 10 ans (avec piles) / Prix correcte (160 €)|Couverture sonore très faible (10 dB)|
 |Alarme autonome ineo-sense ACS Switch Buzz®|Extrêmement simple à installer et utiliser / durée de vie de 5 ans (avec pile remplacable) / Détection ouverture de porte / Couverture sonore (100 dB)|Aucun|
+Alarme autonome ineo-sense ACS Switch Buzz®
 
 ## Localisation de l'objet
 ## Options du système
 Nous utilisons Cayenne afin de visualiser nos données mais également d'envoyer un mail ainsi qu'un SMS pour prévenir que la concentration de CO2 a dépassé un seuil critique et donc que l'alarme est déclenché.
+Il possède également un bouton test pour vérifier le fonctionnement de tous les capteurs mais également la connexion LoRa. 
 
+Une idée d'amélioration aurait été d'envoyer un message UPLINK pour notifier de la détection de feu et d'utiliser les messages DOWNLINK pour demander plus d'informations au end device (température, présence ou non d'une personne, concentration de CO2, test ou non). 
 
 
 
