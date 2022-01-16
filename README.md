@@ -83,9 +83,12 @@ Pour commencer, on peut différencier les différentes classes :
 ## Analyse des produits concurrents
 |Nom du produit|Avantage(s)|Inconvénient(s)|
 |--------------|-----------|---------------|
-|R602A LoRaWAN Wireless Siren|||
+|R602A LoRaWAN Wireless Siren||- Forte consommation en énergie - Prix très élevé|
 |Avertisseur vocal connecté 126 dB Radio LoRa SmartVOX|||
 ## Localisation de l'objet
+## Options du système
+Nous utilisons Cayenne afin de visualiser nos données mais également d'envoyer un mail ainsi qu'un SMS pour prévenir que la concentration de CO2 a dépassé un seuil critique et donc que l'alarme est déclenché.
+
 
 
 
