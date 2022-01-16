@@ -15,7 +15,7 @@ L’objet sirène envoie périodiquement un message de status (ie heart beat) un
 ## Architecture globale du réseau de sirènes d’alarme
 ## Sécurité globale : clé de chiffrage
 ## Architecture matérielle de l’objet
-![alt text](https://github.com/maximenrs/projetIOT22/blob/main/Images/Structure.png?raw=true)
+![alt text](https://github.com/GauthierBct/projetIOT22/blob/main/img/Structure.png?raw=true)
 
 ## Coût de la BOM de notre produit
 |Matériel|Quantité|Prix unitaire|Prix total|Remarques|
@@ -46,13 +46,19 @@ L’objet sirène envoie périodiquement un message de status (ie heart beat) un
 ## Logiciel embarqué de l’objet sirène
 ## Métriques logiciel du logiciel embarqué
 ## Changements de comportement de l’objet en fonction des événements
-![alt text](https://github.com/maximenrs/projetIOT22/blob/main/Images/Automate.png?raw=true)
+![alt text](https://github.com/GauthierBct/projetIOT22/blob/main/img/Automate.png?raw=true)
 
 ## Durée de vie de la batterie
 Pour commencer, on peut différencier les différentes classes : 
 -   **Classe A** : Cette classe a la consommation énergétique la plus faible. Lorsque l'équipement a des données à envoyer il le fait sans contrôle puis il ouvre 2 fenêtres d'écoute successives pour des éventuels messages provenant du serveur, les durées recommandées sont de 1 puis 2 secondes. Ces 2 fenêtres sont les seules durant lesquelles le serveur peut envoyer à l'équipement les données qu'il a précédemment stockées à son attention.
+![alt text](https://github.com/GauthierBct/projetIOT22/blob/main/img/ClasseA.png?raw=true)
+
 -   **Classe B** : Cette classe permet un compromis entre la consommation énergétique et le besoin en communication bidirectionnelle. Ces équipements ouvrent des fenêtres de réception à des intervalles programmés par des messages périodique envoyés par le serveur.
+![alt text](https://github.com/GauthierBct/projetIOT22/blob/main/img/Automate.png?raw=true)
+
 -   **Classe C** : Cette classe a la plus forte consommation énergétique mais permet des communications bidirectionnelles n'étant pas programmées. Les équipements ont une fenêtre d'écoute permanente.
+![alt text](https://github.com/GauthierBct/projetIOT22/blob/main/img/Automate.png?raw=true)
+
 
 ## Analyse du cycle de vie du produit
 ## Analyse des produits concurrents
