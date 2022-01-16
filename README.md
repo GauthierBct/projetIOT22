@@ -83,7 +83,7 @@ Pour commencer, on peut différencier les différentes classes :
 ## Analyse des produits concurrents
 |Nom du produit|Avantage(s)|Inconvénient(s)|
 |--------------|-----------|---------------|
-|R602A LoRaWAN Wireless Siren||- Forte consommation en énergie - Prix très élevé|
+|R602A LoRaWAN Wireless Siren|Secouru par batterie intégrée / Extrêmement simple à installer et utiliser / Grande couverture sonore (126 dB) / Communication sans fil longue distance (jusqu'à 1,2 km)|Forte consommation en énergie / Prix très élevé|
 |Avertisseur vocal connecté 126 dB Radio LoRa SmartVOX|||
 ## Localisation de l'objet
 ## Options du système
