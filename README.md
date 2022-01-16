@@ -14,7 +14,6 @@ L’objet sirène envoie périodiquement un message de status (ie heart beat) un
 
 Une vidéo de démonstration est disponible [ici](https://www.youtube.com/watch?v=ilunLYDT-cQ).
 
-## Architecture globale du réseau de sirènes d’alarme
 ## Sécurité globale : clé de chiffrage
 Pour échanger des données, tous les appareils doivent être activés par le réseau.
 On a 2 types de procédures d'activation :
@@ -57,7 +56,6 @@ static const uint8_t appkey[LORAMAC_APPKEY_LEN] = { 0x01, 0x3B, 0xF2, 0x33, 0x0C
 - Cotisation annuelle : 10 000 $
 - 1 licence gratuite de LCTT (LoRaWAN Certification Test Tool) incluse
 - Frais de certification du produit : 1 000 $ par produit
-## Implémentation du logiciel embarqué
 ## Format LPP des messages LoRaWAN uplink et downlink
 - Message UpLink
 	- **Température**  : Format LPP Temperature sur le canal 0
@@ -65,6 +63,9 @@ static const uint8_t appkey[LORAMAC_APPKEY_LEN] = { 0x01, 0x3B, 0xF2, 0x33, 0x0C
 	- **Humidité** : Format LPP RelativeHumidity sur le canal 2
 	- **Mouvement** : Format LPP Presence sur le canal 3
 ## Logiciel embarqué de l’objet sirène
+Tout le code necessaire est disponible dans le [main.c](https://github.com/GauthierBct/projetIOT22/blob/main/main.c). On relève la valeur du CO2 toutes les 20 secondes et si elle est supérieure à un seuil, on envoie un message LoRa et déclanche la sirène. 
+Si un appui court a lieu alors on passe en mode test, c'est à dire on fait sonner l'alarme et envoie une trame LoRa.
+Tout appui long (3 secondes) permet de couper le buzzer.
 ## Métriques logiciel du logiciel embarqué
 - Nombres de lignes : 230
 - Taille du fichier binaire : 256 ko
@@ -83,8 +84,6 @@ Pour commencer, on peut différencier les différentes classes :
 -   **Classe C** : Cette classe a la plus forte consommation énergétique mais permet des communications bidirectionnelles n'étant pas programmées. Les équipements ont une fenêtre d'écoute permanente.
 ![alt text](https://github.com/GauthierBct/projetIOT22/blob/main/img/ClasseC.png?raw=true)
 
-
-## Analyse du cycle de vie du produit
 ## Analyse des produits concurrents
 |Nom du produit|Avantage(s)|Inconvénient(s)|
 |--------------|-----------|---------------|
@@ -94,7 +93,6 @@ Pour commencer, on peut différencier les différentes classes :
 |Alarme autonome ineo-sense ACS Switch Buzz®|Extrêmement simple à installer et utiliser / durée de vie de 5 ans (avec pile remplacable) / Détection ouverture de porte / Couverture sonore (100 dB)|Aucun|
 Alarme autonome ineo-sense ACS Switch Buzz®
 
-## Localisation de l'objet
 ## Options du système
 Nous utilisons Cayenne afin de visualiser nos données mais également d'envoyer un mail ainsi qu'un SMS pour prévenir que la concentration de CO2 a dépassé un seuil critique et donc que l'alarme est déclenché.
 Il possède également un bouton test pour vérifier le fonctionnement de tous les capteurs mais également la connexion LoRa. 
