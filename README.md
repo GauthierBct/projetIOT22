@@ -1,7 +1,7 @@
 # Mini Projet IoT 2021-2022 
 # Réseau de sirènes d’alarme LoRaWAN
 
-## Objectif
+## Objectifs
 L’objectif du mini-projet est d’étudier la réalisation d’un objet connecté en LoRaWAN pour la sécurité des biens et des personnes.
 
 L’objet LoRaWAN est identifié par son DevEUI et associé à une pièce ou à un lieu. Il peut être enregistré sur un réseau public national en OTAA ou sur un réseau privé en OTAA comme CampusIoT. Cet objet pourrait participer à un réseau maillé (“mesh”) LoRa (type Amazon Sidewalk).
@@ -13,6 +13,12 @@ L’objet sirène est déclenché soit par un bouton poussoir (ie panic button),
 L’objet sirène envoie périodiquement un message de status (ie heart beat) une fois déclenchée.
 
 Une vidéo de démonstration est disponible [ici](https://www.youtube.com/watch?v=ilunLYDT-cQ).
+
+## Architecture globale du réseau de sirènes d'alarme
+
+![img-reseau-alarme](https://github.com/GauthierBct/projetIOT22/blob/main/img/Reseau.png)
+
+L'image ci-dessous illustre la manière dont nous avons imaginé le fonctionnement de notre réseau d'alarmes connectées. Les alarmes communiquent entre elles en P2P (peer to peer) mais aussi avec un réseau LoRaWAN. Si une sirène se déclanche, elle peut directement informer toutes les autres de s'allumer également et dans un second temps, remonter les informations au serveur via le réseau LoRaWAN.
 
 ## Sécurité globale : clé de chiffrage
 Pour échanger des données, tous les appareils doivent être activés par le réseau.
@@ -35,18 +41,19 @@ static const uint8_t appkey[LORAMAC_APPKEY_LEN] = { 0x01, 0x3B, 0xF2, 0x33, 0x0C
 ```
 
 ## Architecture matérielle de l’objet
-![alt text](https://github.com/GauthierBct/projetIOT22/blob/main/img/Structure.png?raw=true)
+Après avoir définis les composants que nous allons utiliser, nous arrivons à la structure suivante (pour le end device). Ce dispositif nécessite une gateway connectée au réseau privé [CampusIOT](https://github.com/CampusIoT).
 
+![alt text](https://github.com/GauthierBct/projetIOT22/blob/main/img/Structure.png?raw=true)
 ## Coût de la BOM de notre produit
 |Matériel|Quantité|Prix unitaire|Prix total|Remarques|
 |--------|--------|-------------|----------|-|
 |PIR Motion Sensor|1|8,90 €|8,90 €|Permet de détecter régulièrement la présence probable de personnes à proximité de l'alarme.| 
 |Capteur de CO2, de T° et d'humidité|1|68,80 €|68,80 €|Ce capteur va permettre de définir si la situation est critique ou non en comparant les mesures aux seuils d'une situation "normale".|
-|LEDs|2|0,0447 €|0,0894 €|Permet d'afficher l'état actuel aux utilisateurs a proximité de l'alarme.|
+|LED|1|0,0447 €|0,0447 €|Permet d'afficher l'état actuel aux utilisateurs a proximité de l'alarme.|
 |Buzzer|1|0,39 €|0,39 €|Permet de communiquer aux utilisateurs à proximité de l'alarme que la situation est dangereuse.|
 |LoRa E5 Development Kit|1|23,46 €|23,46 €|Permet la communication LoRa|
 |Bouton poussoir d'arcade|1|2,50 €|2,50 €|Permet de lancer le mode test et d'arrêter l'alarme|
-|Système complet|5000|112,36 €|561 800 €|
+|Système complet|5000|104,13 €|520 650 €|
 ## Coût de certification ETSI du produit et le coût de certification LoRa Alliance du produit
 ### Certification ETSI
 - Normes : ETSI EN 319 411-1, RGS
@@ -60,8 +67,8 @@ static const uint8_t appkey[LORAMAC_APPKEY_LEN] = { 0x01, 0x3B, 0xF2, 0x33, 0x0C
 - Message UpLink
 	- **Température**  : Format LPP Temperature sur le canal 0
 	- **Concentration en CO2** : Format LPP Analog sur le canal 1
-	- **Humidité** : Format LPP RelativeHumidity sur le canal 2
-	- **Mouvement** : Format LPP Presence sur le canal 3
+	- **Mouvement** : Format LPP Presence sur le canal 2
+	- **Test** : Format LPP Digital Output sur le canal 3
 ## Logiciel embarqué de l’objet sirène
 Tout le code necessaire est disponible dans le [main.c](https://github.com/GauthierBct/projetIOT22/blob/main/main.c). On relève la valeur du CO2 toutes les 20 secondes et si elle est supérieure à un seuil, on envoie un message LoRa et déclanche la sirène. 
 Si un appui court a lieu alors on passe en mode test, c'est à dire on fait sonner l'alarme et envoie une trame LoRa.
@@ -72,6 +79,8 @@ Tout appui long (3 secondes) permet de couper le buzzer.
 
 ## Changements de comportement de l’objet en fonction des événements
 ![alt text](https://github.com/GauthierBct/projetIOT22/blob/main/img/Automate.png?raw=true)
+
+Dans un souci d'économie d'énergie, nous faisons boucler toutes les 20 secondes pour éviter de faire des réveils trop souvent et envoyons des trames LoRa uniquement dans le cas d'une détection.
 
 ## Durée de vie de la batterie
 Pour commencer, on peut différencier les différentes classes : 
